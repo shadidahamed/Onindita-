@@ -15,7 +15,8 @@
     -webkit-tap-highlight-color: transparent;
 }
 
-.body {
+/* FIX: Target actual html and body elements directly instead of a class selector */
+html, body {
     background-color: var(--bg-dark);
     font-family: 'Inter', 'Hind Siliguri', sans-serif;
     color: var(--text-primary);
@@ -99,7 +100,6 @@
     height: 290px;
     top: 50%;
     left: 50%;
-    /* Hardware acceleration handles anchor point transformation smoothly */
     transform: translate(-50%, -50%) scale(0.6) rotateX(0deg) rotateY(0deg);
     transform-style: preserve-3d;
     z-index: 4;
@@ -115,7 +115,6 @@
     -webkit-clip-path: url(#svgHeartMask);
     background: #000;
     transform-style: preserve-3d;
-    /* Pushes image forward slightly along the Z-axis for a clear parallax feel */
     transform: translateZ(15px); 
 }
 
@@ -125,7 +124,7 @@
     object-fit: cover;
     object-position: center 35%; 
     transform: scale(1.25);
-    transition: transform 0.2s ease-out; /* Keeps mouse/gyro floating movements silky smooth */
+    transition: transform 0.2s ease-out;
 }
 
 .heart-border-glow {
@@ -136,7 +135,6 @@
     background: linear-gradient(135deg, var(--neon-pink), #a015ff, var(--neon-pink));
     z-index: -1;
     opacity: 0.9;
-    /* Keeps the border slightly back to create visible structural depth edges */
     transform: translateZ(-5px); 
 }
 
