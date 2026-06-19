@@ -61,7 +61,9 @@ document.addEventListener("DOMContentLoaded", () => {
     let animationComplete = false;
     
     // Core parameters governing the 3D local orbit loop speed
-    let rotationObject = { y: 0, x: 0 }; 
+    let targetRotationY = 0;
+    let targetRotationX = 0;
+    const rotationObject = { y: 0, x: 0 }; 
 
     const introTimeline = gsap.timeline();
     
@@ -102,7 +104,7 @@ document.addEventListener("DOMContentLoaded", () => {
             
             // Continuous 360-degree mathematical circular orbit pattern loop
             rotationObject.y = time * 0.4; 
-            rotationObject.x = Math.sin(time * 0.5) * 0.12; // Controlled harmonic nodding angle swing
+            rotationObject.x = Math.sin(time * 0.5) * 0.15; // Smooth harmonic nodding angle swing
 
             // Map variables perfectly onto WebGL matrix
             particleSystem.rotation.y = rotationObject.y;
@@ -115,7 +117,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 const degY = (rotationObject.y * (180 / Math.PI)) % 360;
                 const degX = rotationObject.x * (180 / Math.PI);
                 
-                // transform-origin is held strictly dead center to preserve image alignment
+                // We keep translate(-50%, -50%) to ensure it centers flawlessly on any screen size
                 frame.style.transform = `translate(-50%, -50%) scale(1) rotateY(${degY}deg) rotateX(${degX}deg)`;
             }
         }
@@ -153,27 +155,11 @@ document.addEventListener("DOMContentLoaded", () => {
         const nx = (e.clientX / window.innerWidth) * 2 - 1;
         const ny = -(e.clientY / window.innerHeight) * 2 + 1;
 
-        // Using a slightly scaled setup (scale(1.25) in CSS) lets us float the photo texture 
-        // behind the clipping mask window without introducing borders or shifting off-center
+        // Offset the image texture slightly within its boundaries to create depth separation
         gsap.to('.family-photo', {
-            x: nx * 12,
-            y: -ny * 12,
-            duration: 0.8,
-            ease: "power1.out"
-        });
-    });
-
-    // Handle touch device gyro simulation or movement emulation
-    window.addEventListener('touchmove', (e) => {
-        if (!animationComplete || e.touches.length === 0) return;
-        const touch = e.touches[0];
-        const nx = (touch.clientX / window.innerWidth) * 2 - 1;
-        const ny = -(touch.clientY / window.innerHeight) * 2 + 1;
-
-        gsap.to('.family-photo', {
-            x: nx * 10,
-            y: -ny * 10,
-            duration: 0.8,
+            x: nx * 15,
+            y: -ny * 15,
+            duration: 0.6,
             ease: "power1.out"
         });
     });
@@ -199,8 +185,8 @@ document.addEventListener("DOMContentLoaded", () => {
                     ease: "power4.out"
                 });
             }
-            });
-      });
+        });
+    });
 
     window.addEventListener('resize', () => {
         const w = container.clientWidth;
