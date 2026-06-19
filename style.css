@@ -15,8 +15,7 @@
     -webkit-tap-highlight-color: transparent;
 }
 
-/* FIX: Target actual html and body elements directly instead of a class selector */
-html, body {
+.html, body {
     background-color: var(--bg-dark);
     font-family: 'Inter', 'Hind Siliguri', sans-serif;
     color: var(--text-primary);
@@ -73,7 +72,6 @@ html, body {
     padding: 20px;
 }
 
-/* 3D Viewport Wrapper Configuration */
 .canvas-wrapper {
     position: relative;
     width: 100%;
@@ -93,7 +91,6 @@ html, body {
     pointer-events: none;
 }
 
-/* Perfect Center Focus Alignment Matrix with True 3D depth context */
 .heart-frame-container {
     position: absolute;
     width: 290px;
@@ -138,7 +135,6 @@ html, body {
     transform: translateZ(-5px); 
 }
 
-/* Premium Buttons & Controls */
 .btn-premium {
     position: relative;
     background: transparent;
@@ -191,7 +187,6 @@ html, body {
     z-index: 1;
 }
 
-/* Glass Message Interfaces */
 .glass-card-scroll-wrapper {
     width: 100%;
     max-width: 620px;
@@ -365,7 +360,6 @@ html, body {
     display: none !important;
 }
 
-/* Mobile Screen Tuning */
 @media (max-width: 768px) {
     .canvas-wrapper {
         width: 100%;
