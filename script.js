@@ -2,8 +2,11 @@ document.addEventListener("DOMContentLoaded", () => {
     
     // --- THREE.JS ENGINE CONFIGURATION ---
     const container = document.getElementById('three-canvas');
-    const width = container.clientWidth;
-    const height = container.clientHeight;
+    
+    /* FIX: Provide safe layout boundary fallbacks if the container sizing 
+       isn't fully computed by the browser layout engine on script boot */
+    const width = container.clientWidth || 550;
+    const height = container.clientHeight || 550;
 
     const scene = new THREE.Scene();
     
@@ -189,8 +192,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     window.addEventListener('resize', () => {
-        const w = container.clientWidth;
-        const h = container.clientHeight;
+        const w = container.clientWidth || 550;
+        const h = container.clientHeight || 550;
         camera.aspect = w / h;
         camera.updateProjectionMatrix();
         renderer.setSize(w, h);
