@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Mathematical Pattern of Love</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@300;400;600&family=Hind+Siliguri:wght@400;600&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<body>
+
+    <div class="nebula-bg"></div>
+    <div class="grid-overlay"></div>
+
+    <main class="app-container">
+        
+        <section id="stage-one" class="view-stage">
+            <div class="canvas-wrapper">
+                <canvas id="three-canvas"></canvas>
+                
+                <div class="heart-frame-container" id="heartFrame">
+                    <div class="heart-clipper">
+                        <img src="20241108_152711.jpg" alt="Family Photo" class="family-photo">
+                    </div> 
+                    <div class="heart-border-glow"></div>
+                </div>
+            </div>
+
+            <div class="equation-watermark">
+                <p class="math-line">x = 16·sin³(t)</p>
+                <p class="math-line">y = 13·cos(t) - 5·cos(2t) - 2·cos(3t) - cos(4t)</p>
+            </div>
+
+            <button class="btn-premium" id="btnProceed">
+                <span class="btn-text">Proceed</span>
+                <span class="btn-glow"></span>
+            </button>
+        </section>
+
+        <section id="stage-two" class="view-stage hidden">
+            <div class="glass-card-scroll-wrapper">
+                <div class="glass-card">
+                    <div class="card-edge-light"></div>
+                    
+                    <div class="message-block en-lang">
+                        <span class="lang-tag">English</span>
+                        <h2>If my feelings were a mathematical equation,</h2>
+                        <p class="main-quote">you would be the constant that completes my universe.</p>
+                        <p class="sub-text">Every heartbeat follows a pattern, and every pattern leads back to you. ❤️</p>
+                    </div>
+
+                    <div class="divider-line"></div>
+
+                    <div class="message-block bn-lang">
+                        <span class="lang-tag">বাংলা</span>
+                        <h2>যদি আমার অনুভূতিগুলো একটি গণিতের সমীকরণ হতো,</h2>
+                        <p class="main-quote">তাহলে তুমি হতে সেই ধ্রুবক যা আমার পুরো পৃথিবীকে পূর্ণ করে।</p>
+                        <p class="sub-text">আমার প্রতিটি হৃদস্পন্দনের সূত্র শেষ পর্যন্ত তোমার কাছেই ফিরে আসে।বাপ্পি।❤️</p>
+                    </div>
+
+                    <div class="action-footer">
+                        <a href="https://m.me/" target="_blank" class="messenger-btn">
+                            <svg class="mess-icon" viewBox="0 0 24 24">
+                                <path d="M12 2C6.5 2 2 6.14 2 11.24c0 2.9 1.45 5.5 3.74 7.18V22l3.43-1.88c.88.24 1.8.37 2.83.37 5.5 0 10-4.14 10-9.25C22 6.14 17.5 2 12 2zm1.14 12.44L10.5 11.7l-4.22 2.74 4.64-4.93 2.64 2.74 4.2-2.74-4.66 4.93z"/>
+                            </svg>
+                            Connect on Messenger
+                        </a>
+                        
+                        <div class="qr-micro-wrapper">
+                            <span class="qr-caption">Scan to Connect Profile</span>
+                            <div class="qr-frame">
+                                <div class="qr-scanner-line"></div>
+                                <div class="qr-corners"></div>
+                                <div class="mock-qr-dots"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <svg width="0" height="0" style="position:absolute;">
+        <defs>
+            <clipPath id="svgHeartMask" clipPathUnits="objectBoundingBox">
+                <path d="M 0.5, 0.94 C 0.48, 0.94, 0.1, 0.63, 0.1, 0.36 C 0.1, 0.2, 0.21, 0.1, 0.35, 0.1 C 0.43, 0.1, 0.48, 0.15, 0.5, 0.19 C 0.52, 0.15, 0.57, 0.1, 0.65, 0.1 C 0.79, 0.1, 0.9, 0.2, 0.9, 0.36 C 0.9, 0.63, 0.52, 0.94, 0.5, 0.94 Z"></path>
+            </clipPath>
+        </defs>
+    </svg>
+
+    <script src="script.js"></script>
+</body>
+</html>
